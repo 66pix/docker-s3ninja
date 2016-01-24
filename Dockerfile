@@ -5,6 +5,7 @@ RUN curl -o /opt/s3ninja/s3ninja.zip https://oss.sonatype.org/content/groups/pub
 
 RUN cd /opt/s3ninja && unzip /opt/s3ninja/s3ninja.zip
 RUN rm /opt/s3ninja/s3ninja.zip
+RUN mkdir -m 777 -p /opt/s3ninja/data/s3
 
 EXPOSE 9444
 EXPOSE 9191
