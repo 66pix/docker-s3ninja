@@ -14,15 +14,15 @@ machine:
     - sudo tar -C /usr/local/bin -xzvf docker-squash-linux-amd64-v0.2.0.tar.gz
   post:
     - docker build -t 66pix/s3ninja .
-    - ./run.sh:
-      background: true
+    - docker run -p "9444:9444"  "66pix/s3ninja":
+        background: true
 
 dependencies:
   override:
     - sudo apt-get update && sudo apt-get install tar
 
 test:
-  - wget localhost:9444
+  - wget 'localhost:9444'
 
 deployment:
   production:
