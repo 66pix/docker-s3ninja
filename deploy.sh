@@ -13,10 +13,12 @@ docker save "66pix/s3ninja:$CIRCLE_BUILD_NUM-layered" > layered.tar
 
 echo ""
 echo "Squashing image"
+sudo docker-squash -i layered.tar -o squashed_latest.tar -t "66pix/s3ninja:latest"
 sudo docker-squash -i layered.tar -o squashed.tar -t "66pix/s3ninja:$CIRCLE_BUILD_NUM"
 
 echo ""
 echo "Loading squashed image"
+cat squashed_latest.tar | docker load
 cat squashed.tar | docker load
 
 echo ""
