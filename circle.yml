@@ -20,6 +20,7 @@ test:
     - docker build -t "66pix/s3ninja" .
     - docker run -p "9444:9444"  "66pix/s3ninja":
         background: true
+    - sleep 10
   override:
     - wget 'localhost:9444'
 
