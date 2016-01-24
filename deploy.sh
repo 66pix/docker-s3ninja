@@ -21,4 +21,5 @@ cat squashed.tar | docker load
 
 echo ""
 echo "Pushing squashed image"
+docker push "66pix/s3ninja:latest"
 docker push "66pix/s3ninja:$CIRCLE_BUILD_NUM"
