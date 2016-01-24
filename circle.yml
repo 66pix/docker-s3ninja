@@ -22,7 +22,8 @@ dependencies:
     - sudo apt-get update && sudo apt-get install tar
 
 test:
-  - wget 'localhost:9444'
+  override:
+    - wget 'localhost:9444'
 
 deployment:
   production:
