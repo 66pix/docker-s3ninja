@@ -12,10 +12,17 @@ machine:
     - sudo chmod 0755 /usr/bin/docker
     - sudo wget https://github.com/jwilder/docker-squash/releases/download/v0.2.0/docker-squash-linux-amd64-v0.2.0.tar.gz
     - sudo tar -C /usr/local/bin -xzvf docker-squash-linux-amd64-v0.2.0.tar.gz
+  post:
+    - docker build -t 66pix/s3ninja .
+    - ./run.sh:
+      background: true
 
 dependencies:
   override:
     - sudo apt-get update && sudo apt-get install tar
+
+test:
+  - wget localhost:9444
 
 deployment:
   production:
