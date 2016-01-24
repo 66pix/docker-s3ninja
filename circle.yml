@@ -1,6 +1,4 @@
 machine:
-  node:
-    version: 4
   services:
     - docker
   pre:
